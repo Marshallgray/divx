@@ -284,7 +284,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   country_select
   devise
-  friendly_id
+  friendly_id (~> 5.1.0)
   invisible_captcha
   jbuilder (~> 2.0)
   jquery-rails

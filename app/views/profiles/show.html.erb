@@ -1,29 +1,15 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @profile.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @profile.last_name %>
-</p>
-
-<p>
-  <strong>Picture:</strong>
-  <%= @profile.picture %>
-</p>
-
-<p>
-  <strong>Birth date:</strong>
-  <%= @profile.birth_date %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="<%= @profile.picture %>" alt="Card image cap" width="100%">
+      <div class="card-block">
+        <h4 class="card-title"><%= @profile.full_name %></h4>
+        <p class="card-text">DOB: <br><%= @profile.birth_date %></p>
+        <% if current_user == @profile.user %>
+          <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-primary btn-sm" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

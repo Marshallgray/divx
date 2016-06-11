@@ -4,4 +4,8 @@ class Profile < ApplicationRecord
 
   mount_uploader :picture, ProfilePictureUploader
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
 end

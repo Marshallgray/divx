@@ -19,12 +19,14 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+    authorize! :edit, @profile
   end
 
   # POST /profiles
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
+    @profile.user = current_user
 
     respond_to do |format|
       if @profile.save
