@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+  resources :profiles
   root 'pages#home'
   get 'admin', to: 'pages#admin'
   get 'contact', to: 'pages#contact'
   get 'pages/home'
-
+  
   get 'pages/admin'
 
   get 'pages/contact'
