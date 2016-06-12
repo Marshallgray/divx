@@ -3,7 +3,6 @@
 <table class="table">
     <tr>
       <th>User</th>
-      <th>Skilltype</th>
       <th>Video</th>
       <th>Bio</th>
       <th>Resume</th>
@@ -15,14 +14,13 @@
 
   <%= content_tag_for(:tr, @talents) do |talent| %>
     <td><%= talent.user %></td>
-    <td><%= talent.skilltype %></td>
     <td><%= talent.video %></td>
     <td><%= talent.bio %></td>
     <td><%= talent.resume %></td>
     <td><%= talent.suburb %></td>
     <td><%= talent.latitude %></td>
     <td><%= talent.longitude %></td>
-      <td><%= link_to 'Show', talent %></td>
+      <td><%= link_to 'Show', talent, class: 'btn btn' %></td>
     <td><%= link_to 'Edit', edit_talent_path(talent), class: 'btn btn-edit' %></td>
     <td><%= link_to 'Delete', talent, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %></td>
   <% end %>
