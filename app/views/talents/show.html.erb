@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @talent.user %>
+</p>
+
+<p>
+  <strong>Skilltype:</strong>
+  <%= @talent.skilltype %>
+</p>
+
+<p>
+  <strong>Video:</strong>
+  <%= @talent.video %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @talent.bio %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= @talent.resume %>
+</p>
+
+<p>
+  <strong>Suburb:</strong>
+  <%= @talent.suburb %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @talent.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @talent.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_talent_path(@talent) %> |
+<%= link_to 'Back', talents_path %>

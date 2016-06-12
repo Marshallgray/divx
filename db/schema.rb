@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160611024002) do
+ActiveRecord::Schema.define(version: 20160611131836) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 20160611024002) do
     t.datetime "updated_at"
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id"
     t.index ["name"], name: "index_roles_on_name"
+  end
+
+  create_table "talents", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "video"
+    t.text     "bio"
+    t.string   "resume"
+    t.string   "suburb"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_talents_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
