@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612041527) do
+ActiveRecord::Schema.define(version: 20160612101502) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(version: 20160612041527) do
     t.index ["name"], name: "index_roles_on_name"
   end
 
+  create_table "skill_types", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "talents", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "video"
@@ -54,8 +59,10 @@ ActiveRecord::Schema.define(version: 20160612041527) do
     t.string   "suburb"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "skill_type_id"
+    t.index ["skill_type_id"], name: "index_talents_on_skill_type_id"
     t.index ["user_id"], name: "index_talents_on_user_id"
   end
 
