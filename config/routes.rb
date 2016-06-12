@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   resources :talents
-  get 'home/index'
-
   resources :profiles
   devise_for :users
 
+  get 'home/index'
   root 'home#index'
   get 'admin', to: 'pages#admin'
   get 'contact', to: 'pages#contact'

@@ -6,13 +6,18 @@
       <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
     </li>
 
+    <% if current_user.profile %>
+    <li class="nav-item <%= 'active' if current_page?(profile_path(current_user.profile)) %>">
+      <%= link_to 'My profile', profile_path(current_user.profile), class: 'nav-link' %>
+    </li>
+    <% else %>
+    <li class="nav-item">
+    <%= link_to 'Create profile', new_profile_path, class: 'nav-link' %>
+    <% end %>
+  </li>
 
     <li class="nav-item">
-      <%= link_to 'My profile', profiles_path, class: 'nav-link' %>
-    </li>
-  
-    <li class="nav-item">
-      <a class="nav-link" href="#">My Talents</a>
+      <%= link_to 'My talents', talents_path, class: 'nav-link' %>
     </li>
 
     <li class="nav-item">

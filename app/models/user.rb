@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :profile
-  
+  has_one :talent
+
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
