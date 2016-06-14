@@ -3,8 +3,15 @@
   <% if current_user.profile %>
   Stuff
   <% else %>
-  <%= button_to 'Create your candidate profile', assign_role_profiles_path(user_type: 'candidate'), class: 'btn btn-default' %>
-  <%= link_to 'Create your recruiter profile', new_profile_path(user_type: 'recruiter'), class: 'btn btn-default' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <%= button_to 'Create your candidate profile', assign_role_profiles_path(user_type: 'candidate'), class: 'btn btn-default' %>
+      </div>
+      <div class="col-md-3">
+        <%= button_to 'Create your recruiter profile', assign_role_profiles_path(user_type: 'recruiter'), class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
   <% end %>
-
 <% end %>
