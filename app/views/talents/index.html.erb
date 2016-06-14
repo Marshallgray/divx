@@ -1,4 +1,4 @@
-<h1>Listing talents</h1>
+<h1>Listing talent profiles</h1>
 
 <table class="table">
     <tr>
@@ -30,3 +30,5 @@
 <div class="form-actions">
   <%= link_to 'New Talent', new_talent_path, class: 'btn btn-success' %>
 </div>
+
+<%= will_paginate @talents %>

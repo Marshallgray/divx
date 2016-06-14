@@ -1,7 +1,15 @@
 <% if user_signed_in? %>
 <nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <ul class="nav navbar-nav">
+  <a class="navbar-brand" href="/">Diversity X</a>
+
+<% if current_user.has_role? :admin %>
+  <form class="form-inline pull-xs-left">
+    <input class="form-control" type="text" placeholder="Search">
+    <button class="btn btn-success-outline" type="submit">Search Talent</button>
+  </form>
+<% end %>
+
+  <ul class="nav navbar-nav pull-right">
     <li class="nav-item active">
       <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
     </li>
@@ -12,17 +20,34 @@
     </li>
     <% else %>
     <li class="nav-item">
-    <%= link_to 'Create profile', new_profile_path, class: 'nav-link' %>
-    <% end %>
-  </li>
-
-    <li class="nav-item">
-      <%= link_to 'My talents', talents_path, class: 'nav-link' %>
+      <%= link_to 'Create profile', new_profile_path, class: 'nav-link' %>
+      <% end %>
     </li>
 
+    <li class="nav-item">
+      <%= link_to 'Companies', companies_path, class: 'nav-link' %>
+    </li>
+
+    <% if current_user.has_role? :admin %>
+    <li class="nav-item">
+      <%= link_to 'Search talent', talents_path(current_user.talent), class: 'nav-link' %>
+    </li>
+    <% else %>
+    <li class="nav-item">
+      <%= link_to 'Create Talent', new_talent_path, class: 'nav-link' %>
+      <% end %>
+
+    <% if current_user.profile %>
     <li class="nav-item">
       <a class="nav-link" href="#">My Interviews</a>
     </li>
+    <% end %>
+
+    <% if current_user.has_role? :admin %>
+    <li class="nav-item">
+      <%= link_to "Admin Panel", root_path, class: 'nav-link' %>
+    </li>
+    <% end %>
 
     <li class="nav-item">
       <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>

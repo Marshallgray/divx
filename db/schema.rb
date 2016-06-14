@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160612101502) do
+ActiveRecord::Schema.define(version: 20160613054414) do
+
+  create_table "companies", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "company_name"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.text     "company_description"
+    t.string   "company_logo"
+    t.index ["user_id"], name: "index_companies_on_user_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false

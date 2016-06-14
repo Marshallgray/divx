@@ -2,13 +2,14 @@
 <div class="row">
   <div class="col-md-4">
     <div class="card">
-      <img class="card-img-top" src="<%= @profile.picture %>" alt="Card image cap" width="100%">
+      <img class="card-img-top" src="<%= @profile.picture %>" alt="Profile Image" width="100%">
       <div class="card-block">
         <h4 class="card-title"><%= @profile.full_name %></h4>
         <p class="card-text">DOB: <br><%= @profile.birth_date %></p>
         <% if current_user == @profile.user %>
-          <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-success btn-sm" %>
         <% end %>
+          <%= link_to 'View all profiles', profiles_path, class: "btn btn-primary btn-sm" %>
       </div>
     </div>
   </div>

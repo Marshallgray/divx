@@ -7,10 +7,20 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.has_role? :admin
         can :manage, :all
-      else
-        can :read, Profile
+      elsif user.has_role? :staff
+        can :read, :all
+        can :update, Talent, :all
+      elsif user.has_role? :recruiter
+        can :read, Talent, :all
+        can :read, Company, :all
+        can :manage, Company, user_id: user.id
+        # can :manage, BusinessLocation, user_id: user.id
+        # can :manage, JobPosition, user_id: user.id
+        # can :read, :create, :update, :destroy, Interview, user_id: user.id
+      else user.add_role :candidate
         can :manage, Profile, user_id: user.id
         can :manage, Talent, user_id: user.id
+        # can :read, :update, Interview
       end
     #
     # The first argument to `can` is the action you are giving the user

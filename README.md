@@ -1,3 +1,5 @@
-# Ya Bits
+# README
 
-This is a simple rails app with bootstrap!
+### Potential HTML Templates
+- http://showcase.thememountain.com/?theme=sartre
+- 

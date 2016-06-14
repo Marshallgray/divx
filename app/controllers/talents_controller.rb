@@ -4,7 +4,7 @@ class TalentsController < ApplicationController
   # GET /talents
   # GET /talents.json
   def index
-    @talents = Talent.all
+    @talents = Talent.paginate(:page => params[:page], :per_page => 1)
   end
 
   # GET /talents/1
@@ -25,6 +25,8 @@ class TalentsController < ApplicationController
   # POST /talents.json
   def create
     @talent = Talent.new(talent_params)
+    @talent.user = current_user
+    @talent.user_id = current_user.id
 
     respond_to do |format|
       if @talent.save

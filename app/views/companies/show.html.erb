@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="<%= @company.company_logo %>" alt="Company Logo" width="100%">
+      <div class="card-block">
+        <h4 class="card-title"><%= @company.company_name %></h4>
+        <p class="card-text">Description <br><%= @company.company_description %></p>
+        <% if current_user == @company.user %>
+          <%= link_to 'Edit', edit_profile_path(@company), class: "btn btn-primary btn-sm" %>
+        <% end %>
+        <%= link_to ''
+      </div>
+    </div>
+  </div>
+</div>

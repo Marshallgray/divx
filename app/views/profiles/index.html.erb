@@ -2,21 +2,19 @@
 
 <table class="table">
     <tr>
-      <th>User</th>
-      <th>First_name</th>
-      <th>Last_name</th>
+      <th>Name</th>
+      <th>Surname</th>
       <th>Picture</th>
-      <th>Birth_date</th>
+      <th>Birth date</th>
         <th colspan="3"></th>
     </tr>
 
   <%= content_tag_for(:tr, @profiles) do |profile| %>
-    <td><%= profile.user %></td>
     <td><%= profile.first_name %></td>
     <td><%= profile.last_name %></td>
     <td><%= profile.picture %></td>
     <td><%= profile.birth_date %></td>
-      <td><%= link_to 'Show', profile %></td>
+      <td><%= link_to 'Show', profile, class: 'btn btn-edit' %></td>
     <td><%= link_to 'Edit', edit_profile_path(profile), class: 'btn btn-edit' %></td>
     <td><%= link_to 'Delete', profile, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %></td>
   <% end %>

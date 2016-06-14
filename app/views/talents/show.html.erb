@@ -1,39 +1,21 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @talent.user %>
-</p>
-
-<p>
-  <strong>Video:</strong>
-  <%= @talent.video %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @talent.bio %>
-</p>
-
-<p>
-  <strong>Resume:</strong>
-  <%= @talent.resume %>
-</p>
-
-<p>
-  <strong>Suburb:</strong>
-  <%= @talent.suburb %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @talent.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @talent.longitude %>
-</p>
-
-<%= link_to 'Edit', edit_talent_path(@talent) %> |
-<%= link_to 'Back', talents_path %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <img class="card-img-top" src="<%= @talent.user.profile.picture %>" alt="Profile Image" width="100%">
+      <div class="card-block">
+        <h4 class="card-title"><%= @talent.user.profile.full_name %></h4>
+        <p class="card-text">Video: <br><%= @talent.video %></p>
+        <p class="card-text">Bio: <br><%= @talent.bio %></p>
+        <p class="card-text">Skills: <br></p>
+        <p class="card-text">Resume: <br><%= @talent.resume %></p>
+        <p class="card-text">Suburb: <br><%= @talent.suburb %></p>
+        <p class="card-text">Latitude: <br><%= @talent.latitude %></p>
+        <p class="card-text">Longitude: <br><%= @talent.longitude %></p>
+        <% if current_user == @talent.user %>
+          <%= link_to 'Edit', edit_profile_path(@talent), class: "btn btn-primary btn-sm" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

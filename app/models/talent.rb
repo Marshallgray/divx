@@ -3,5 +3,4 @@ class Talent < ApplicationRecord
   validates :bio, :suburb, presence: true
   mount_uploader :resume, ResumeUploader
 
-  resourcify
 end
