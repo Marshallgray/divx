@@ -6,10 +6,10 @@ class User < ApplicationRecord
   has_many :user_roles
   has_many :roles, through: :user_roles
 
-  rolify :before_add => :before_add_method
+  rolify
 
-  def before_add_method(role)
-    # do something before it gets added
+  def assign_role(role)
+    self.add_role role.to_sym
   end
 
   # Include default devise modules. Others available are:

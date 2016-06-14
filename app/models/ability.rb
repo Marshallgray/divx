@@ -17,7 +17,7 @@ class Ability
         # can :manage, BusinessLocation, user_id: user.id
         # can :manage, JobPosition, user_id: user.id
         # can :read, :create, :update, :destroy, Interview, user_id: user.id
-      else user.add_role :candidate
+      else user.has_role? :candidate
         can :manage, Profile, user_id: user.id
         can :manage, Talent, user_id: user.id
         # can :read, :update, Interview

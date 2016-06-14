@@ -1,6 +1,12 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
+  def assign_role
+    current_user.assign_role(params[:user_type])
+    # current_user.add_role(params[:user_type].to_sym)
+    redirect_to new_profile_path
+  end
+
   # GET /profiles
   # GET /profiles.json
   def index

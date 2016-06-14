@@ -1,5 +1,10 @@
 <h1>Welcome to DiversityX</h1>
 <% if user_signed_in? %>
   <% if current_user.profile %>
+  Stuff
+  <% else %>
+  <%= button_to 'Create your candidate profile', assign_role_profiles_path(user_type: 'candidate'), class: 'btn btn-default' %>
+  <%= link_to 'Create your recruiter profile', new_profile_path(user_type: 'recruiter'), class: 'btn btn-default' %>
   <% end %>
+
 <% end %>

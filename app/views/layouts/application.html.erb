@@ -20,7 +20,13 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-<%= render 'layouts/navbar' %>
+	<% if user_signed_in? %>
+<% if current_user.has_role? :admin %>
+	<%= render 'layouts/navbar_admin' %>
+<% else %>
+	<%= render 'layouts/navbar' %>
+<% end %>
+<% end %>
 <%= render 'layouts/flash_messages' %>
 <div class="container">
   <%= yield %>
