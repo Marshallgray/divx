@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :business_locations
   resources :profiles do
     collection do
       # post :make_admin
-      post :assign_role
-      post :revoke_role
+      # post :assign_recruiter_role, :assign_candidate_role
+      post 'assign_recruiter_role', to: 'profiles#assign_recruiter_role'
+      post 'assign_candidate_role', to: 'profiles#assign_candidate_role'
     end
   end
 

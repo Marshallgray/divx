@@ -1,12 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
-  def assign_role
-    current_user.assign_role(params[:user_type])
-    # current_user.add_role(params[:user_type].to_sym)
-    redirect_to new_profile_path
-  end
-
   # GET /profiles
   # GET /profiles.json
   def index
@@ -33,8 +27,9 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user = current_user
-    @profile.user_id = current_user.id
+    # @profile.user_id = current_user.id
 
+    current_user.add_role @profile.user_type.to_sym
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
@@ -78,6 +73,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:user_id, :first_name, :last_name, :picture, :birth_date)
+      params.require(:profile).permit(:user_id, :first_name, :last_name, :picture, :birth_date, :user_type)
     end
 end

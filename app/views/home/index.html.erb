@@ -1,17 +1,46 @@
 <h1>Welcome to DiversityX</h1>
 <% if user_signed_in? %>
-  <% if current_user.profile %>
-  Stuff
-  <% else %>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <%= button_to 'Create your candidate profile', assign_role_profiles_path(user_type: 'candidate'), class: 'btn btn-default' %>
+<% if current_user.profile %>
+Stuff
+<% else %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" data-src="../assets/images/box.png" alt="Card image cap">
+        <div class="card-block">
+          <h4 class="card-title">Create a profile</h4>
+          <p class="card-text">Please Create a Profile.</p>
+          <button class="btn btn-primary">
+            <%= link_to 'Create your profile', new_profile_path %>
+          </button>
+        </div>
       </div>
-      <div class="col-md-3">
-        <%= button_to 'Create your recruiter profile', assign_role_profiles_path(user_type: 'recruiter'), class: 'btn btn-success' %>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" data-src="../assets/images/box.png" alt="Card image cap">
+        <div class="card-block">
+          <h4 class="card-title">Create a Company Page</h4>
+          <p class="card-text">Please Create a Company Page.</p>
+          <button class="btn btn-primary">
+            <%= link_to 'Create your Company page', new_company_path %>
+          </button>
+        </div>
       </div>
     </div>
   </div>
-  <% end %>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= link_to 'Create your profile', new_profile_path %>
+    </div>
+  </div>
+</div>
+<% end %>
 <% end %>

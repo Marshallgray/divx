@@ -1,9 +1,3 @@
-<% if current_user.has_role? :candidate %>
-  <h1>Create your Candidate Profile</h1>
+<h1>Create your User Profile</h1>
   <%= render 'form', profile: @profile %>
-    <%= link_to 'Back', revoke_role_profiles_path(user_type: 'candidate'), class: 'btn btn-danger' %>
-<% else %>
-  <h1> Create your Recruiter Profile </h2>
-    <%= render 'form', profile: @profile %>
-      <%= link_to 'Back', revoke_role_profiles_path(user_type: 'recruiter'), class: 'btn btn-danger'  %>
-<% end %>
+    <%= link_to 'Back', root_path, class: 'btn btn-danger' %>

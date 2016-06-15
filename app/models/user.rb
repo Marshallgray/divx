@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include UserRolesHelper
   has_one :profile
   has_one :talent
   has_many :companies
@@ -8,13 +9,15 @@ class User < ApplicationRecord
 
   rolify
 
-  def assign_role(role)
-    self.add_role role.to_sym
-  end
 
-  def revoke_role(role)
-    self.remove_role role.to_sym
-  end
+  # def assign_recruiter_role
+  # end
+  #
+  # def assign_candidate_role
+  # end
+
+
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

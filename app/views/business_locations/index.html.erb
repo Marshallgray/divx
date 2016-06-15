@@ -1,0 +1,35 @@
+<h1>Listing business_locations</h1>
+
+<table class="table">
+    <tr>
+      <th>Title</th>
+      <th>Address</th>
+      <th>Suburb</th>
+      <th>State</th>
+      <th>Postcode</th>
+      <th>Country</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+        <th colspan="3"></th>
+    </tr>
+
+  <%= content_tag_for(:tr, @business_locations) do |business_location| %>
+    <td><%= business_location.title %></td>
+    <td><%= business_location.address %></td>
+    <td><%= business_location.suburb %></td>
+    <td><%= business_location.state %></td>
+    <td><%= business_location.postcode %></td>
+    <td><%= business_location.country %></td>
+    <td><%= business_location.latitude %></td>
+    <td><%= business_location.longitude %></td>
+
+      <td><%= link_to 'Show', business_location %></td>
+    <td><%= link_to 'Edit', edit_business_location_path(business_location), class: 'btn btn-edit' %></td>
+    <td><%= link_to 'Delete', business_location, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %></td>
+  <% end %>
+</table>
+
+
+<div class="form-actions">
+  <%= link_to 'New Business location', new_business_location_path, class: 'btn btn-success' %>
+</div>
