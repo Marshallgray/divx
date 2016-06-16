@@ -9,7 +9,11 @@
         <% if current_user == @profile.user %>
           <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-success btn-sm" %>
         <% end %>
+        <% if current_user.has_role? :admin || :recruiter %>
           <%= link_to 'View all profiles', profiles_path, class: "btn btn-primary btn-sm" %>
+        <% else %>
+          <%= link_to 'Home', root_path, class: "btn btn-primary btn-sm" %>
+        <% end %>
       </div>
     </div>
   </div>

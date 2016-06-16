@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <%= image_tag("tick.png", alt: "Card image cap", class: "card-img-top") %>
+        <div class="card-block">
+          <h4 class="card-title">Step 1.</h4>
+          <p class="card-text">Successful Profile creation.</p>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <%= image_tag("empty_box.png", alt: "Card image cap", class: "card-img-top") %>
+            <div class="card-block">
+              <h4 class="card-title">Step 2.</h4>
+              <p class="card-text">Create your talent profile.</p>
+              <button class="btn btn-primary">
+                <%= link_to 'Create profile', new_talent_path %>
+              </button>
+            </div>
+          </div>
+        </div>

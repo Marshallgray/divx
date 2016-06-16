@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <%= image_tag("tick.png", alt: "Card image cap", class: "card-img-top") %>
+        <div class="card-block">
+          <h4 class="card-title">Step 1.</h4>
+          <p class="card-text">Successful Profile creation.</p>
+          <button class="btn btn-primary">
+            <%= link_to 'Edit your profile', edit_profile_path %>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <%= image_tag("tick.png", alt: "Card image cap", class: "card-img-top") %>
+            <div class="card-block">
+              <h4 class="card-title">Step 2.</h4>
+              <p class="card-text">Create your company page.</p>
+              <button class="btn btn-primary">
+                <%= link_to 'Edit company page', edit_company_path %>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card">
+                <%= image_tag("empty-box.png", alt: "Card image cap", class: "card-img-top") %>
+                <div class="card-block">
+                  <h4 class="card-title">Add a business location</h4>
+                  <p class="card-text">Do this.</p>
+                  <button class="btn btn-primary">
+                    <%= link_to 'Add a business location', new_business_location %>
+                  </button>
+                </div>
+              </div>
+            </div>

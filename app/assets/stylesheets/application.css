@@ -14,7 +14,14 @@
  *= require_self
  */
 
+<<<<<<< HEAD
  #map {
    height: 30vh;
    width: 30vw;
  }
+=======
+ .card-img-top{
+  width:100%;
+  height:auto;
+}
+>>>>>>> d496ebb046d08fae9bd573466b0bde765554afc5
