@@ -1,6 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  validates :first_name, :last_name, :picture, presence: true
+  validates :first_name, :last_name, :picture, :user_type, presence: true
 
   mount_uploader :picture, ProfilePictureUploader
 

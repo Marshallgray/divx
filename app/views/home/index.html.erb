@@ -1,46 +1,25 @@
 <h1>Welcome to DiversityX</h1>
 <% if user_signed_in? %>
-<% if current_user.profile %>
-Stuff
-<% else %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" data-src="../assets/images/box.png" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Create a profile</h4>
-          <p class="card-text">Please Create a Profile.</p>
-          <button class="btn btn-primary">
-            <%= link_to 'Create your profile', new_profile_path %>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" data-src="../assets/images/box.png" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Create a Company Page</h4>
-          <p class="card-text">Please Create a Company Page.</p>
-          <button class="btn btn-primary">
-            <%= link_to 'Create your Company page', new_company_path %>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+  <% if current_user.profile %>
+    <% if current_user.has_role? :candidate %>
+      <% if current_user.talent %>
+        <%= render 'home/candidate_dashboard' %>
+      <% else %>
+          <%= render 'home/candidate_without_talent_profile' %>
+      <% end %>
 
+    <% elsif current_user.has_role? :recruiter %>
+      <% if current_user.business_locations.any? %>
+        <%= render 'home/recruiter_dashboard' %>
+          <% if current_user.company %>
+            <%= render 'home/recruiter_with_company_profile' %>
+      <% else %>
+        <%= render 'home/recruiter_without_company_profile' %>
+          <% end %>
+      <% end %>
 
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <%= link_to 'Create your profile', new_profile_path %>
-    </div>
-  </div>
-</div>
+    <% end %>
+  <% else %>
+    <%= render 'home/user_without_profile' %>
 <% end %>
 <% end %>

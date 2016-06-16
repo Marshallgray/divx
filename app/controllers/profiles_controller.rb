@@ -29,7 +29,8 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     # @profile.user_id = current_user.id
 
-    current_user.add_role @profile.user_type.to_sym
+    current_user.add_role @profile.user_type.downcase.to_sym
+
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
