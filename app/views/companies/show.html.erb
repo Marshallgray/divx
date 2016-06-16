@@ -9,7 +9,20 @@
         <% if current_user == @company.user %>
           <%= link_to 'Edit', edit_profile_path(@company), class: "btn btn-primary btn-sm" %>
         <% end %>
+          <%= link_to 'Update Business location', new_business_location_path(company: @company.id), class: 'btn btn-success' %>
+        
+          <%#render partial: "companies/map" %>
       </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card card-block">
+      <h4 class="card-title">Locations</h4>
+      <ul>
+        <% @company.business_locations.each do |location| %>
+          <li><%= location.title %> <% if current_user.companies.include?(@company) %><%= link_to '[Edit]', edit_business_location_path(location) %><% end %></li>
+          <%= render 'company_locations_map' %>
+        <% end %>
     </div>
   </div>
 </div>

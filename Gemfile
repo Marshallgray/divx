@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'geocoder'
+
 
 gem 'record_tag_helper', '~> 1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -64,6 +64,7 @@ gem 'sitemap_generator'
 gem 'whenever', require: false
 gem 'sucker_punch', '~> 1.0'
 gem 'newrelic_rpm'
+gem 'geocoder'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
