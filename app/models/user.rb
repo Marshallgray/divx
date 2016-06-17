@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :roles, through: :user_roles
 
   rolify
-
+  
 
   # def assign_recruiter_role
   # end

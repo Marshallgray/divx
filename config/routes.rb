@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   devise_for :users
   # post 'assign_role', to: 'profiles/assign_role'
   get 'home/index'
+  get '/talents_list' => 'talents#talents_list'
+
+  get '/companies_list' => 'companies#companies_list'
+
   root 'home#index'
   #
   # get 'admin', to: 'pages#admin'

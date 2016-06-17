@@ -4,7 +4,19 @@ class TalentsController < ApplicationController
   # GET /talents
   # GET /talents.json
   def index
-    @talents = Talent.paginate(:page => params[:page], :per_page => 1)
+    @talents = Talent.all
+  end
+
+  def talents_list
+    if params[:search]
+      @talents = Talent.where("suburb like ?","%#{params[:search]}%")
+    else
+      @talents = Talent.all
+    end
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /talents/1

@@ -7,6 +7,19 @@ class CompaniesController < ApplicationController
     @companies = Company.all
   end
 
+  def companies_list
+    if params[:search]
+      @companies = Company.where("company_name like ?","%#{params[:search]}%")
+    else
+      @companies = Company.all
+    end
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
+  end
+
   # GET /companies/1
   # GET /companies/1.json
   def show
@@ -69,6 +82,6 @@ class CompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def company_params
-      params.require(:company).permit(:user_id, :company_name, :company_logo)
+      params.require(:company).permit(:user_id, :company_name, :company_logo, :company_description)
     end
 end
