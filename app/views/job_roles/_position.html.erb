@@ -11,7 +11,7 @@
     <td><%= job_role.title %></td>
     <td><%= job_role.description %></td>
     <td><%= job_role.business_location.title %></td>
-      <td><%= link_to 'Show', job_role %></td>
+    <td><%= link_to 'Show', job_role, class: 'btn btn-show' %></td>
     <td><%= link_to 'Edit', edit_job_role_path(job_role), class: 'btn btn-edit' %></td>
     <td><%= link_to 'Delete', job_role, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-destroy' %></td>
   </tr>

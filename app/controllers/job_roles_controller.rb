@@ -7,9 +7,15 @@ class JobRolesController < ApplicationController
     @job_roles = JobRole.all
   end
 
+
   # GET /job_roles/1
   # GET /job_roles/1.json
   def show
+
+  end
+
+  def apply
+    
   end
 
   # GET /job_roles/new

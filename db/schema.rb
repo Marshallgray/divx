@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616080723) do
+ActiveRecord::Schema.define(version: 20160617063452) do
 
   create_table "business_locations", force: :cascade do |t|
     t.string   "title"
@@ -48,6 +48,20 @@ ActiveRecord::Schema.define(version: 20160616080723) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
+  create_table "interviews", force: :cascade do |t|
+    t.integer  "job_role_id"
+    t.integer  "talent_id"
+    t.time     "time"
+    t.date     "date"
+    t.string   "location"
+    t.text     "comments"
+    t.boolean  "Approved"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["job_role_id"], name: "index_interviews_on_job_role_id"
+    t.index ["talent_id"], name: "index_interviews_on_talent_id"
   end
 
   create_table "job_roles", force: :cascade do |t|

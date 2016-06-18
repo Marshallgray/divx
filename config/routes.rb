@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interviews
   resources :job_roles
   resources :locations
   resources :business_locations
