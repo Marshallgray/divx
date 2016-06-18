@@ -1,0 +1,47 @@
+<% if user_signed_in? %>
+  <% if current_user.has_role? :recruiter %>
+    <nav class="navbar navbar-light bg-faded">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Diversity X</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right pull-right">
+          <% if current_user.profile %>
+            <li class="nav-item <%= 'active' if current_page?(profile_path(current_user.profile)) %>">
+              <%= link_to "#{current_user.profile.first_name}", profile_path(current_user.profile), class: 'nav-link' %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to 'Create profile', new_profile_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+
+          <li class="nav-item dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Companies <span class="caret"></span></a>
+
+            <ul class="dropdown-menu">
+              <% if current_user.company %>
+                <li><%= link_to 'My Company', company_path(current_user.company), class: 'nav-link' %></li>
+              <% else %>
+                <li><%= link_to 'Create Company', new_company_path, class: 'nav-link' %></li>
+              <% end %>
+                <li><%= link_to 'Search Companies', companies_path, class: 'nav-link' %></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to "Interviews", interview_path(current_user.company.business_location.job_roles), class:
+             'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+        </ul>
+      </ul>
+    <!-- </div> -->
+  </div>
+  </nav>
+  <% end %>
+  <% end %>

@@ -1,18 +1,12 @@
 <% if user_signed_in? %>
   <% if current_user.has_role? :admin %>
     <nav class="navbar navbar-light bg-faded">
-      <a class="navbar-brand" href="/">Diversity X</a>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Diversity X</a>
+      </div>
 
-      <form class="form-inline pull-xs-left">
-        <input class="form-control" type="text" placeholder="Search">
-        <button class="btn btn-success-outline" type="submit">Search</button>
-      </form>
-
-      <ul class="nav navbar-nav pull-right">
-        <li class="nav-item active">
-          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-        </li>
-
+      <ul class="nav navbar-nav navbar-right pull-right">
         <% if current_user.profile %>
         <li class="nav-item <%= 'active' if current_page?(profile_path(current_user.profile)) %>">
           <%= link_to 'My profile', profile_path(current_user.profile), class: 'nav-link' %>
@@ -24,16 +18,14 @@
           <% end %>
         </li>
 
-        <li class="nav-item">
-          <%= link_to 'Manage Companies', companies_path, class: 'nav-link' %>
-        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage <span class="caret"></span></a>
 
-        <li class="nav-item">
-          <%= link_to 'Manage talent', talents_path(current_user.talent), class: 'nav-link' %>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Manage Interviews</a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'Talent', talents_path, class: 'nav-link' %></li>
+            <li><%= link_to 'Companies', companies_path, class: 'nav-link' %></li>
+            <li><%= link_to 'Interviews', root_path %> </li>
+          </ul>
         </li>
 
         <li class="nav-item">
@@ -43,11 +35,11 @@
         <li class="nav-item">
           <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
         </li>
-    <% end %>
-  <% end %>
+      </ul>
+      <% end %>
+      <% end %>
     </ul>
-    <!-- <form class="form-inline pull-xs-right">
-    <input class="form-control" type="text" placeholder="Search">
-    <button class="btn btn-success-outline" type="submit">Search</button>
-  </form> -->
-</nav>
+
+    <!-- </div> -->
+  </div>
+  </nav>

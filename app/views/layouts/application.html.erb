@@ -21,15 +21,17 @@
 </head>
 <body>
 	<% if user_signed_in? %>
-<% if current_user.has_role? :admin %>
-	<%= render 'layouts/navbar_admin' %>
-<% else %>
-	<%= render 'layouts/navbar' %>
-<% end %>
-<% end %>
-<%= render 'layouts/flash_messages' %>
-<div class="container">
-  <%= yield %>
+		<% if current_user.has_role? :admin %>
+			<%= render 'layouts/navbar_admin' %>
+		<% elsif current_user.has_role? :candidate %>
+			<%= render 'layouts/navbar_candidate' %>
+		<% else %>
+			<%= render 'layouts/navbar_recruiter' %>
+		<% end %>
+	<% end %>
+		<%= render 'layouts/flash_messages' %>
+		<div class="container">
+		  <%= yield %>
 </div>
 </body>
 </html>
