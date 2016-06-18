@@ -9,16 +9,14 @@
       <% end %>
 
     <% elsif current_user.has_role? :recruiter %>
-      <% if current_user.business_locations.any? %>
+      <% if current_user.companies.any? %>
         <%= render 'home/recruiter_dashboard' %>
-          <% if current_user.company %>
-            <%= render 'home/recruiter_with_company_profile' %>
       <% else %>
         <%= render 'home/recruiter_without_company_profile' %>
           <% end %>
       <% end %>
 
-    <% end %>
+
   <% else %>
     <%= render 'home/user_without_profile' %>
 <% end %>

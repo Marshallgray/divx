@@ -23,6 +23,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1
   # GET /companies/1.json
   def show
+    @company = Company.find(params[:id])
 
     @job_roles = []
     @company.business_locations.each do |location|
@@ -48,6 +49,8 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(company_params)
+    @company.user = current_user
+    @company.user_id = current_user.id
 
     respond_to do |format|
       if @company.save

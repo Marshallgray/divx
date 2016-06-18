@@ -21,19 +21,22 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Companies <span class="caret"></span></a>
 
             <ul class="dropdown-menu">
-              <% if current_user.company %>
-                <li><%= link_to 'My Company', company_path(current_user.company), class: 'nav-link' %></li>
-              <% else %>
-                <li><%= link_to 'Create Company', new_company_path, class: 'nav-link' %></li>
-              <% end %>
+              <% if current_user.companies.any? %>
+                <li><%= link_to 'My Companies', company_path(current_user.companies), class: 'nav-link' %></li>
                 <li><%= link_to 'Search Companies', companies_path, class: 'nav-link' %></li>
+              <% else %>
+
+                <li><%= link_to 'Search Companies', companies_path, class: 'nav-link' %></li>
+              <% end %>
             </ul>
           </li>
 
-          <li class="nav-item">
-            <%= link_to "Interviews", interview_path(current_user.company.business_location.job_roles), class:
+          <%# if current_user.companies.business_locations.job_roles.interviews %>
+          <!-- <li class="nav-item">
+            <%#= link_to "Interviews", interview_path(current_user.companies.business_locations.job_roles.interviews), class:
              'nav-link' %>
-          </li>
+          </li> -->
+          <%# end %>
 
           <li class="nav-item">
             <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
