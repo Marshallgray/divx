@@ -32,6 +32,8 @@ class CompaniesController < ApplicationController
       end
     end
   end
+
+
   # The show action has the empty array of @job_roles
   # the @company.business_locations.each do |location| is looping through the companies to find the busineses locations
   # the location.job_roles.each do |jr| is looping through the locations and pushing them into the @job_roles array.
