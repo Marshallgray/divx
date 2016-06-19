@@ -20,3 +20,13 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+production:
+  database: example_production
+  adapter: postgresql
+  host: localhost
+  password:
+
+development:
+  <<: *default
+  database: db/development.sqlite3
