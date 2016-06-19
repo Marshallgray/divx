@@ -9,7 +9,7 @@
     <ul class="nav navbar-nav navbar-right pull-right">
       <% if current_user.profile %>
       <li class="nav-item <%= 'active' if current_page?(profile_path(current_user.profile)) %>">
-        <%= link_to "#{current_user.profile.first_name}", profile_path(current_user.profile), class: 'nav-link' %>
+        <%= link_to "Hello #{current_user.profile.first_name}", profile_path(current_user.profile), class: 'nav-link' %>
       </li>
 
       <% else %>
@@ -20,7 +20,7 @@
 
       <% if current_user.talent %>
         <li class="nav-item">
-          <%= link_to 'Talents', talent_path(current_user.talent), class: 'nav-link' %>
+          <%= link_to 'My talents', talent_path(current_user.talent), class: 'nav-link' %>
         </li>
       <% else %>
         <li class="nav-item">
