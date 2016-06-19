@@ -1,4 +1,5 @@
 class JobRolesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_job_role, only: [:show, :edit, :update, :destroy]
 
   # GET /job_roles
@@ -15,7 +16,7 @@ class JobRolesController < ApplicationController
   end
 
   def apply
-    
+
   end
 
   # GET /job_roles/new

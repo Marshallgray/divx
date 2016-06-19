@@ -1,5 +1,8 @@
 class CompaniesController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_company, only: [:show, :edit, :update, :destroy]
+
 
   # GET /companies
   # GET /companies.json
@@ -20,6 +23,10 @@ class CompaniesController < ApplicationController
     end
   end
 
+  def show_my_companies
+    @my_companies = Company.where(:user_id => current_user.id)
+  end
+
   # GET /companies/1
   # GET /companies/1.json
   def show
@@ -32,7 +39,6 @@ class CompaniesController < ApplicationController
       end
     end
   end
-
 
   # The show action has the empty array of @job_roles
   # the @company.business_locations.each do |location| is looping through the companies to find the busineses locations

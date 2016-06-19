@@ -1,4 +1,6 @@
 class TalentsController < ApplicationController
+  load_and_authorize_resource
+
   before_action :set_talent, only: [:show, :edit, :update, :destroy]
 
   # GET /talents

@@ -18,8 +18,10 @@ class Ability
         # can :manage, JobPosition, user_id: user.id
         # can :read, :create, :update, :destroy, Interview, user_id: user.id
       else user.has_role? :candidate
+        can :read, Profile, user_id: user.id
         can :manage, Profile, user_id: user.id
         can :manage, Talent, user_id: user.id
+        can :read, Company
         # can :read, :update, Interview
       end
     #
