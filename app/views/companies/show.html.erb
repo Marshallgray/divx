@@ -9,7 +9,9 @@
         <% if current_user == @company.user %>
           <%= link_to 'Edit', edit_profile_path(@company), class: "btn btn-primary btn-sm" %>
         <% end %>
+        <% if current_user == @company.user %> 
           <%= link_to 'Update Business location', new_business_location_path(company: @company.id), class: 'btn btn-success' %>
+        <% end %>
 
           <%#render partial: "companies/map" %>
       </div>

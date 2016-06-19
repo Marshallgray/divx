@@ -9,10 +9,12 @@ class Ability
         can :manage, :all
       elsif user.has_role? :staff
         can :read, :all
-        can :update, Talent, :all
+        can :update, Talent
       elsif user.has_role? :recruiter
-        can :read, Talent, :all
-        can :read, Company, :all
+        can :read, Profile, user_id: user.id
+        can :manage, Profile, user_id: user.id
+        can :read, Talent
+        can :read, Company
         can :manage, Company, user_id: user.id
         # can :manage, BusinessLocation, user_id: user.id
         # can :manage, JobPosition, user_id: user.id
@@ -22,6 +24,8 @@ class Ability
         can :manage, Profile, user_id: user.id
         can :manage, Talent, user_id: user.id
         can :read, Company
+        can :edit, Talent, user_id: user.id
+        cannot :index, Talent
         # can :read, :update, Interview
       end
     #

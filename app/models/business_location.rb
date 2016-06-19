@@ -1,4 +1,5 @@
 class BusinessLocation < ApplicationRecord
+
   belongs_to :company
   self.geocoded_by :full_street_address
   after_validation :geocode

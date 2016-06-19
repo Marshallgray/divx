@@ -1,6 +1,5 @@
 class TalentsController < ApplicationController
   load_and_authorize_resource
-
   before_action :set_talent, only: [:show, :edit, :update, :destroy]
 
   # GET /talents
@@ -33,6 +32,7 @@ class TalentsController < ApplicationController
 
   # GET /talents/1/edit
   def edit
+    authorize! :edit, @talent
   end
 
   # POST /talents
