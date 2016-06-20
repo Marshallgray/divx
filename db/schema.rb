@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160617063452) do
+ActiveRecord::Schema.define(version: 20160620084519) do
 
   create_table "business_locations", force: :cascade do |t|
     t.string   "title"
@@ -108,10 +108,8 @@ ActiveRecord::Schema.define(version: 20160617063452) do
     t.string   "suburb"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "skill_type_id"
-    t.index ["skill_type_id"], name: "index_talents_on_skill_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_talents_on_user_id"
   end
 
