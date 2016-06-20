@@ -23,8 +23,8 @@ class CompaniesController < ApplicationController
     end
   end
 
-  def show_my_companies
-    @my_companies = Company.where(:user_id => current_user.id)
+  def my_companies
+    @my_companies = current_user.companies
   end
 
   # GET /companies/1

@@ -8,7 +8,6 @@ class Profile < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
-
   def make_superadmin
     add_role :superadmin
     redirect_to :back

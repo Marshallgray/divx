@@ -6,7 +6,6 @@ gem 'record_tag_helper', '~> 1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '>= 5.0.0.rc1', '< 5.1'
 # Switched pg gem to use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -69,9 +68,11 @@ gem 'geocoder'
 group :development do
   gem 'better_errors'
   gem 'quiet_assets'
+  gem 'sqlite3'
 end
 
 group :production do
   gem 'rails_12factor'
   gem 'passenger'
+  gem 'pg'
 end

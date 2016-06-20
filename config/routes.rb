@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get '/talents_list' => 'talents#talents_list'
 
-  get 'companies/my_companies' => 'companies#show_my_companies'
+  get 'my_companies' => 'companies#my_companies'
   get '/companies_list' => 'companies#companies_list'
 
   root 'home#index'
