@@ -50,6 +50,7 @@ gem 'sitemap_generator'
 gem 'whenever', require: false
 gem 'sucker_punch', '~> 1.0'
 gem 'newrelic_rpm'
+gem 'geocoder'
 
 group :development do
   gem 'better_errors'
