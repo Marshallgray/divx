@@ -1,10 +1,8 @@
 # README
 
-### Potential HTML Templates
-- http://showcase.thememountain.com/?theme=sartre
--
-
 # Documentation
+
+ - https://drive.google.com/file/d/0ByfGO-HJ1Cg9UnZWaGhVNjJQLXc/view?ths=true
 
 ### Site walk through
 
@@ -40,7 +38,6 @@
   - In app messaging
   - Admin dashboard
   - Skill types need to be linked to candidates profile
-  -
 
 ###Deploymeny
   - Deployed to heroku https://fast-basin-17749.herokuapp.com/
@@ -48,3 +45,6 @@
 ###Challenges
   - roles
   - Deployment - had extra migration file with geocoded_by method in it that shouldn't have been there. Had to figure out how to remove columns from a migration file.
+
+### Potential HTML Templates
+  - http://showcase.thememountain.com/?theme=sartre
