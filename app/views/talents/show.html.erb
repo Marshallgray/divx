@@ -13,7 +13,9 @@
         <% if current_user == @talent.user %>
           <%= link_to 'Edit', edit_talent_path, class: "btn btn-primary btn-sm" %>
         <% end %>
-        <%= link_to 'Interview Me', new_interview_path, class: "btn btn-success" %>
+        <% if current_user.companies.include?(@company) %>
+          <%= link_to 'Interview Me', new_interview_path, class: "btn btn-success" %>
+        <% end %>
       </div>
     </div>
   </div>
