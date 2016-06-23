@@ -17,6 +17,12 @@
             </li>
           <% end %>
 
+          <% if current_user.companies.any? %>
+          <li class="nav-item">
+            <%= link_to 'Search Talents', talents_path, class: 'nav-link' %>
+          </li>
+          <% end %>
+
           <li class="nav-item dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Companies <span class="caret"></span></a>
 

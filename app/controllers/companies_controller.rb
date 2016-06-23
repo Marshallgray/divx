@@ -50,7 +50,11 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1/edit
   def edit
+
+    CheckIfBeingHacked(@company.id, Company)
+
   end
+
 
   # POST /companies
   # POST /companies.json

@@ -20,7 +20,11 @@ class BusinessLocationsController < ApplicationController
 
   # GET /business_locations/1/edit
   def edit
+
+
+
   end
+
 
   # POST /business_locations
   # POST /business_locations.json

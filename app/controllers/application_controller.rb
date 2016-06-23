@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: exception.message
   end
+
+  def CheckIfBeingHacked(some_id, model)
+    unless some_id == model.where(:user_id => current_user.id)[0].id
+    redirect_to root_path, :alert => some_id
+    end
+  end
 end

@@ -15,7 +15,10 @@ class Ability
         can :manage, Profile, user_id: user.id
         can :read, Talent
         can :read, Company
-        can :manage, Company, user_id: user.id
+        can :manage, Company
+        can :manage, BusinessLocation
+        can :manage, JobRole
+
         # can :manage, BusinessLocation, user_id: user.id
         # can :manage, JobPosition, user_id: user.id
         # can :read, :create, :update, :destroy, Interview, user_id: user.id

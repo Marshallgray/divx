@@ -7,9 +7,9 @@
         <h4 class="card-title"><%= @company.company_name %></h4>
         <p class="card-text">Description <br><%= @company.company_description %></p>
         <% if current_user == @company.user %>
-          <%= link_to 'Edit', edit_profile_path(@company), class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Edit', edit_company_path(@company), class: "btn btn-primary btn-sm" %>
         <% end %>
-        <% if current_user == @company.user %> 
+        <% if current_user == @company.user %>
           <%= link_to 'Update Business location', new_business_location_path(company: @company.id), class: 'btn btn-success' %>
         <% end %>
 
