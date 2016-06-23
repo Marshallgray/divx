@@ -10,8 +10,6 @@
         <p class="card-text">Skills: <br></p>
         <p class="card-text">Resume: <br><%= @talent.resume %></p>
         <p class="card-text">Suburb: <br><%= @talent.suburb %></p>
-        <p class="card-text">Latitude: <br><%= @talent.latitude %></p>
-        <p class="card-text">Longitude: <br><%= @talent.longitude %></p>
         <% if current_user == @talent.user %>
           <%= link_to 'Edit', edit_profile_path(@talent), class: "btn btn-primary btn-sm" %>
         <% end %>
