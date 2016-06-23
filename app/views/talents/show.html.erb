@@ -11,7 +11,7 @@
         <p class="card-text">Resume: <br><%= @talent.resume %></p>
         <p class="card-text">Suburb: <br><%= @talent.suburb %></p>
         <% if current_user == @talent.user %>
-          <%= link_to 'Edit', edit_profile_path(@talent), class: "btn btn-primary btn-sm" %>
+          <%= link_to 'Edit', edit_talent_path, class: "btn btn-primary btn-sm" %>
         <% end %>
         <%= link_to 'Interview Me', new_interview_path, class: "btn btn-success" %>
       </div>
