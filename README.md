@@ -8,7 +8,7 @@
 
 - When a user gets to the home page they will be prompted to either sign in or sign up.
 - Upon signing up they will then be prompted to create a profile once clicking through to this page the user will be asked to choose between either a candidate or recruiter and to provide their name DOB and a photo of themselves.
-- Once the profile has been created it will be generated in a view for the user to see with different navigational option in the navbar and with an edit button to update the profile if needed.
+- Once the profile has been created the user will be prompted to create either in a view for the user to see with different navigational option in the navbar and with an edit button to update the profile if needed.
 
 #Candidate
   - If the user chose the role of Candidate they would then need to navigate to the create talent profile.

@@ -1,8 +1,14 @@
 <%= simple_form_for(@talent) do |f| %>
   <%= f.error_notification %>
-
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= image_tag("youtubelink.png", alt: "Card image cap", class: "card-img-top") %>
+    </div>
+  </div>
+</div>
   <div class="form-inputs">
-    <%= f.input :video %>
+    <%= f.input :video, placeholder: 'asdmcxoxrm', label: 'Enter the video ID' %>
     <%= f.input :resume %>
     <%= f.input :bio %>
     <%= f.input :suburb %>

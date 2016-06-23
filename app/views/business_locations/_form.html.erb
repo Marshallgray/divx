@@ -1,57 +1,57 @@
-<%= simple_form_for @business_location do |f| %>
-  <% if @business_location.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@business_location.errors.count, "error") %> prohibited this location from being saved:</h2>
+  <%= simple_form_for @business_location do |f| %>
+    <% if @business_location.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@business_location.errors.count, "error") %> prohibited this location from being saved:</h2>
 
-      <ul>
-      <% @business_location.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @business_location.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.input :company_id, as: :hidden, input_html: {value: params[:company]}%>
+    <div class="field">
+      <%= f.input :title %>
+    </div>
+
+    <div class="field">
+
+      <%= f.input :address %>
+    </div>
+
+    <div class="field">
+
+      <%= f.input :suburb %>
+    </div>
+
+    <div class="field">
+
+      <%= f.input :state %>
+    </div>
+
+    <div class="field">
+
+      <%= f.input :postcode %>
+    </div>
+
+    <div class="field">
+
+      <%= f.input :country, priority: ['Australia'] %>
+    </div>
+
+    <div class="field">
+
+      <%= f.input :latitude %>
+    </div>
+
+    <div class="field">
+
+      <%= f.input :longitude %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <%= f.input :company_id, as: :hidden, input_html: {value: params[:company]}%>
-  <div class="field">
-    <%= f.input :title %>
-  </div>
-
-  <div class="field">
-
-    <%= f.input :address %>
-  </div>
-
-  <div class="field">
-
-    <%= f.input :suburb %>
-  </div>
-
-  <div class="field">
-
-    <%= f.input :state %>
-  </div>
-
-  <div class="field">
-
-    <%= f.input :postcode %>
-  </div>
-
-  <div class="field">
-
-    <%= f.input :country, priority: ['Australia'] %>
-  </div>
-
-  <div class="field">
-
-    <%= f.input :latitude %>
-  </div>
-
-  <div class="field">
-
-    <%= f.input :longitude %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>

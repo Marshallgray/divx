@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
   resources :interviews
   resources :job_roles
   resources :locations
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   devise_for :users
   # post 'assign_role', to: 'profiles/assign_role'
   get 'home/index'
+  get 'admin/index'
   get '/talents_list' => 'talents#talents_list'
 
   get 'my_companies' => 'companies#my_companies'

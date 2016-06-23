@@ -2,7 +2,7 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Business_location</th>
+      <th>Business Location</th>
         <th colspan="3"></th>
     </tr>
 
@@ -20,7 +20,7 @@
 
 
 <div class="form-actions">
-  <% if current_user == @company.user %> 
+  <% if current_user == @company.user %>
   <%= link_to 'New Job role', new_job_role_path, class: 'btn btn-success' %>
   <% end %>
 </div>

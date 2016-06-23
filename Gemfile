@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'font-awesome-rails'
 gem 'searchkick'
 gem 'record_tag_helper', '~> 1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

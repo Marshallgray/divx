@@ -1,22 +1,44 @@
-<p id="notice"><%= notice %></p>
-<div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <img class="card-img-top" src="<%= @talent.user.profile.picture %>" alt="Profile Image" width="100%">
-      <div class="card-block">
-        <h4 class="card-title"><%= @talent.user.profile.full_name %></h4>
-        <p class="card-text">Video: <br><%= @talent.video %></p>
-        <p class="card-text">Bio: <br><%= @talent.bio %></p>
-        <p class="card-text">Skills: <br></p>
-        <p class="card-text">Resume: <br><%= @talent.resume %></p>
-        <p class="card-text">Suburb: <br><%= @talent.suburb %></p>
-        <% if current_user == @talent.user %>
-          <%= link_to 'Edit', edit_talent_path, class: "btn btn-primary btn-sm" %>
-        <% end %>
-        <% if current_user.companies.include?(@company) %>
-          <%= link_to 'Interview Me', new_interview_path, class: "btn btn-success" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'talents/talent_header' %>
+
+	 <div class="container mt">
+	 	<div class="row">
+		 	<div class="col-lg-10 col-lg-offset-1 centered">
+			 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+				  <!-- Wrapper for slides -->
+				  <div class="carousel-inner">
+				    <div class="item active">
+				      <iframe width="580" height="420" src="http://www.youtube.com/embed/<%= @talent.video %>" frameborder="0" allowfullscreen></iframe>
+				    </div>
+				</div>
+		 	</div>
+
+		 	<div class="col-lg-5 col-lg-offset-1">
+			 	<div class="spacing"></div>
+		 		<h4>Bio</h4>
+		 		<p><%= @talent.bio %></p>
+		 	</div>
+
+		 	<div class="col-lg-4 col-lg-offset-1">
+			 	<div class="spacing"></div>
+		 		<h4>Project Details</h4>
+		 		<div class="hline"></div>
+		 		<p><b>DOB:</b> April 18, 2014</p>
+		 		<p><b>Most Recent: / Current Role</b> Burger Eating Champion</p>
+		 		<p><b>Skills:</b> Illustration, Web Design, Wordpress</p>
+		 		<p><b>Residing Suburb:</b> <%= @talent.suburb %></p>
+		 		<p>
+          <% if current_user == @talent.user %>
+            <%= link_to 'Edit', edit_talent_path, class: "btn btn-primary btn-sm" %>
+          <% end %>
+        </p>
+        <p>
+          <% if current_user.companies.include?(@company) %>
+            <%= link_to 'Interview Me', new_interview_path, class: "btn btn-success" %>
+          <% end %>
+        </p>
+		 	</div>
+
+	 	</div>
+	 </div>
+	 </div>

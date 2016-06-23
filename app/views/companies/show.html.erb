@@ -22,7 +22,10 @@
       <h4 class="card-title">Locations</h4>
       <ul>
         <% @company.business_locations.each do |location| %>
-          <li><%= location.title %> <% if current_user.companies.include?(@company) %><%= link_to '[Edit]', edit_business_location_path(location) %><% end %></li>
+          <li><%= location.title %>
+            <% if current_user.companies.include?(@company) %>
+              <%= link_to '[Edit]', edit_business_location_path(location) %>
+            <% end %></li>
           <%= render 'company_locations_map' %>
         <% end %>
     </div>
